@@ -1,0 +1,10 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://172.18.19.137:8080
+functions:
+  image-processing:
+    lang: node18
+    handler: ./image-processing
+    image: vincentnys/image-processing:latest
+
