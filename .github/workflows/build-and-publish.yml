@@ -23,6 +23,7 @@ jobs:
         with:
           username: vincentnys
           password: ${{ secrets.IMAGEPROCESSINGDOCKERHUBTOKEN }}
-      # effectief bouwen van de functie zoals je dat lokaal doet
+      - name: Login for faasd
+        run: faas-cli login --gateway https://jaws2paws.com -u admin --password ${{ secrets.FAASD_PASSWORD }}
       - name: Build function only
-        run: faas-cli up -f image-processing.yml
+        run: faas-cli up -f image-processing.yml --gateway https://jaws2paws.com
